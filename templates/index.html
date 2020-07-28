@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deploying ML Model Using Flask API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Spam Email Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<textarea name="email" placeholder="Email" required="required" rows="5" cols="50">
+
+    	</textarea>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Check</button>
+    </form>
+
+   <br>
+   <br>
+   {%if data == 0%}
+    <b>Not Fraud Email</b>  
+ 
+
+    {%elif data == 1%}
+    <b>Fraud Email</b>
+  
+    
+    {%endif%}
+
+        <br><br>
+
+
+    </center>
+
+ </div>
+
+
+</body>
+</html>
